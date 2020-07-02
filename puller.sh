@@ -12,10 +12,10 @@ readonly ACTION='include/Relatorio_Excel_Resumo_Por_Municipio_Posto.asp'
 readonly -A FUEL_TYPES=(
     [GASOLINE]=487
     [ETHANOL]=643
-    [NGV]=476           # NGV (Natural Gas Vehicle)
+    #[NGV]=476           # NGV (Natural Gas Vehicle)
     [DIESEL]=532
     [DIESEL_S10]=812    # Diesel S10
-    [LPG]=462           # LPG (Liquefied Petroleum Gas)
+    #[LPG]=462           # LPG (Liquefied Petroleum Gas)
 )
 
 fetchCityStations() {
@@ -62,9 +62,7 @@ fetchCityStations() {
 
         # Remove unnecessary lines from csv file and include city name and fuel type
         tail -n +3 $TEMP_DIR/temp-utf8.html1.csv | sed \
-            -e "s/^/$fuelType,$cityName,/" \
-            -e 's/"//g' \
-            >> $outputFile
+            -e "s/^/$fuelType,$cityName,/" >> $outputFile
 
         # Clean up
         (cd $TEMP_DIR && rm -rf temp.html temp-utf8.html temp-utf8.html*.csv)

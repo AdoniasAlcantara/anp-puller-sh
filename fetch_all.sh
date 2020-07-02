@@ -9,7 +9,7 @@ fi
 
 weekCode=$1
 outDir=${2:-./out}
-timestamp=$(date +%Y-%M-%d_%H-%M-%S)
+timestamp=$(date +%Y-%m-%d_%H-%M-%S)
 
 mkdir -p $outDir
 status=$?
